@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.qcm.mappers.QuestionMapper">
+
+    <resultMap id="question" type="net.qcm.model.Question">
+        <result property="id" column="id"/>
+        <result property="titre" column="titre"/>
+        <result property="multiple" column="multiple"/>
+        <collection property="reponses" columnPrefix="r_" resultMap="net.qcm.mappers.ReponseMapper.reponse"/>
+    </resultMap>
+
+    <select id="getAllQuestion" parameterType="int" resultMap="question">
+        select
+          q.id, q.titre, q.multiple,
+          r.id as r_id, r.titre as r_titre, r.bonne as r_bonne
+        from question q
+        right join reponse r
+         on r.question_id = q.id
+    </select>
+
+    <select id="getlistQuestion" parameterType="int" resultMap="question">
+        select * from question
+    </select>
+
+    <delete id="deleteQuestion">
+	  delete from question where id=#{idQuestion}
+    </delete>
+
+
+</mapper>

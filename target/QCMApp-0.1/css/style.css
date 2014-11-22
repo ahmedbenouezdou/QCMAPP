@@ -1,0 +1,71 @@
+.liste-reponse{
+    margin: 5px 0 0 0;
+}
+#btn-supprimer{
+	background-color: rgb(210, 50, 45);
+}
+
+.btn-supprimer {
+	color: white;
+	background-color: rgb(210, 50, 45);
+}
+.glyphicon{
+color: #ffffff;
+}
+
+.glyphicon-chevron-right,.glyphicon-chevron-left{
+    color: #000000;
+}
+.navbar-default{
+	background-color: #3276b1;
+	color: white;
+}
+
+.bonreponse{
+	color: rgb(71, 164, 71);
+}
+
+.liste-reponse ul {
+	margin:0px;
+	padding:0px;
+}
+
+.liste-reponse ul li{
+	list-style-type:none;
+}
+.supprimer-reponse{
+	padding-left: 0px;
+}
+.supprimer-question{
+	color: rgb(210, 50, 45);
+}
+.supprimer-reponse-input{
+	padding-right: 11px;
+}
+.bt-plus-question{
+	padding-left: 47px;
+}
+.modif-question{
+	color: black;
+}
+.navbar-default .navbar-nav  li  a:hover, .navbar-default .navbar-nav > li > a:focus {
+	color: white;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: white;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-brand {
+   color: white;
+}
+.navbar-default .navbar-nav  .active  a, .navbar-default .navbar-nav  .active  a:hover, .navbar-default .navbar-nav  .active  a:focus {
+    color: #00000;
+    background-color: rgb(231, 231, 231);
+}
+
+.navbar-default .navbar-nav  li  a{
+   color: white;
+}

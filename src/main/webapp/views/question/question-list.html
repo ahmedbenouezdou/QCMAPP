@@ -1,0 +1,69 @@
+<!--afficher boutton ajouter question  -->
+
+
+<div class="col-sm-offset-10 col-sm-2">
+    <a href="#/newQuestion" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Ajouter une question</a>
+</div>
+<!--Fin boutton ajouter question   -->
+
+<!--afficher liste des questions  -->
+<div class="col-sm-12 col-md-12 col-lg-12 liste-reponse">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><b>Liste des questions</b></div>
+        <div class="panel-body">
+
+
+            <div class="col-sm-offset-11 col-sm-3">
+                <div class="alert alert-danger" role="alert" ng-show="erreur">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    Verifier les informations.
+                </div>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default"><i class="pagination glyphicon glyphicon-chevron-left"></i></button>
+                    <button type="button" class="btn btn-default"><i class="pagination glyphicon glyphicon-chevron-right"></i></button>
+                </div>
+            </div>
+            <!-- Table -->
+            <table class="table">
+                <table class="table table-striped liste-reponse">
+                    <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>Type de réponse</th>
+                        <th>Réponse possible</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="question in page.page">
+                        <td>{{question.titre}}</td>
+                        <td ng-if="question.multiple"> Réponse multiple</td>
+                        <td ng-if="!question.multiple"> Réponse unique</td>
+                        <td>
+                            <ul ng-repeat="reponse in question.reponses">
+                                <li><i ng-if="reponse.bonneReponse" class="glyphicon glyphicon-ok bonreponse"></i>{{reponse.titre}}
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <a href=""><i class="glyphicon glyphicon-pencil modif-question"></i></a>
+                            <a href="" ng-click="deleteQuestion($index,question.id)"><i class="glyphicon glyphicon-trash supprimer-question"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+

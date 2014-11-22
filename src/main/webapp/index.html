@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" ng-app="QcmApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Administration QCM</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+    <script src="js/libs/angular.js"></script>
+    <script src="js/libs/angular-route.js"></script>
+    <script src="js/libs/angular-resource.js"></script>
+    <script src="js/app/application.js"></script>
+    <script src="js/app/services.js"></script>
+    <script src="js/app/controllers.js"></script>
+</head>
+<body>
+
+<!-- Static navbar -->
+<div class="navbar navbar-default navbar-static-top" role="navigation" style="">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="">Administration QCM</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li ng-class="{active: activePage=='question'}"><a href="#question">Gestion question</a></li>
+                <li ng-class="{active: activePage=='qcm'}"><a href="#qcm">Gestion QCM </a></li>
+                <li ng-class="{active: activePage=='user'}"><a href="#user">Gestion Utilisateur</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><i class="glyphicon glyphicon-user"></i> Ben Ouezdou Ahmed</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-log-out"></i> </a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+
+<div class="container">
+        <div ng-view></div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+
+<div class="col-sm-12 col-md-12 col-lg-12 liste-reponse">
+
+    <div class="alert alert-danger" role="alert" ng-show="erreur">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+       Verifier les informations.
+    </div>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><b>Nouvelle questions</b></div>
+        <div class="panel-body">
+
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Question :</label>
+
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" ng-model="question.titre">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="typeQues" ng-model="question.multiple" ng-value="true"> Réponse
+                                multiple
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="typeQues" ng-model="question.multiple" ng-value="false"> Répense
+                                unique
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <!-- gestion reponse unique -->
+
+                    <div class="form-rep-unique" ng-if="!question.multiple">
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="input-group">
+						  <span class="input-group-addon">
+							Répense 1 : <input type="radio" name="repUniq">
+						  </span>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="input-group">
+						  <span class="input-group-addon">
+							Répense 2 : <input type="radio" name="repUniq">
+						  </span>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group" ng-repeat="color in reponse">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="input-group">
+							  <span class="input-group-addon">
+								Répense {{$index + 3}} : <input type="radio" name="repUniq">
+							  </span>
+                                                <input type="text" class="form-control" ng-model="color.value">
+							  <span class="btn-supprimer input-group-addon  btn-danger">
+							  <a href="" ng-click="colors.splice($index, 1)"><i
+                                      class="glyphicon glyphicon-trash"></i></a>
+							  </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-6 col-sm-10 bt-plus-question">
+                                    <a href="" ng-click="addReponse()"
+                                       class="btn btn-success glyphicon glyphicon-plus"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-6 col-sm-1">
+                                <a href="#" class="btn btn-success"><i class="glyphicon glyphicon-floppy-disk"></i>
+                                    Enregister</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fin gestion réponse unique -->
+
+                    <!-- gestion réponse multiple -->
+                    <div class="form-rep-multipe" ng-if="question.multiple">
+
+                        <div class="form-group" ng-repeat="reponse in question.reponses">
+                            <div ng-if="$index < 2">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="input-group">
+							  <span class="input-group-addon">
+								Réponse {{$index + 1}} : <input type="checkbox" name="repMulti"
+                                                                          ng-model="reponse.bonneReponse">
+							  </span>
+                                                <input type="text" class="form-control"
+                                                       ng-model="reponse.titre">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="$index > 1">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="input-group">
+							  <span class="input-group-addon">
+								Répense {{$index + 1}} : <input type="checkbox" name="repMulti"
+                                                                          ng-model="reponse.bonneReponse">
+							  </span>
+                                                <input type="text" class="form-control" ng-model="reponse.titre">
+							  <span class="btn-supprimer input-group-addon  btn-danger">
+							  <a href="" ng-click="removeReponse($index)"><i class="glyphicon glyphicon-trash"></i></a>
+							  </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-6 col-sm-10 bt-plus-question">
+                                <a href="" ng-click="addReponse()" class="btn btn-success glyphicon glyphicon-plus"></a>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-show="nombreReponsesCoches()>0">
+                            <div class="col-sm-offset-6 col-sm-1">
+                                <a href="" ng-click="saveQuestion()" class="btn btn-success"><i
+                                        class="glyphicon glyphicon-floppy-disk"></i> Enregister</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- Fin gestion réponse multiple -->
+
+            </form>
+        </div>
+    </div>
+</div>
