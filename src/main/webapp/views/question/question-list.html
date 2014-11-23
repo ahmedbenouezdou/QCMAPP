@@ -13,14 +13,13 @@
         <div class="panel-heading"><b>Liste des questions</b></div>
         <div class="panel-body">
 
+            <div class="alert alert-danger" role="alert" ng-show="erreur">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                Verifier les informations.
+            </div>
 
             <div class="col-sm-offset-11 col-sm-3">
-                <div class="alert alert-danger" role="alert" ng-show="erreur">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    <span class="sr-only">Error:</span>
-                    Verifier les informations.
-                </div>
-
                 <div class="btn-group" role="group" aria-label="...">
                     <button type="button" class="btn btn-default"><i class="pagination glyphicon glyphicon-chevron-left"></i></button>
                     <button type="button" class="btn btn-default"><i class="pagination glyphicon glyphicon-chevron-right"></i></button>
@@ -39,7 +38,7 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="question in page.page">
-                        <td>{{question.titre}}</td>
+                        <td>{{question.titre}} {{question.id}}</td>
                         <td ng-if="question.multiple"> Réponse multiple</td>
                         <td ng-if="!question.multiple"> Réponse unique</td>
                         <td>

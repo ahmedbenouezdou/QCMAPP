@@ -41,15 +41,15 @@
         <!--<property name="password" value="${database.password}"/>-->
             <property name="url" value="jdbc:hsqldb:file:qcmdb"/>
     </bean>
-<!--
+
         <jdbc:initialize-database data-source="dataSource">
             <jdbc:script location="classpath:sql/schema.sql"/>
             <jdbc:script location="classpath:sql/data.sql"/>
-        </jdbc:initialize-database>-->
+        </jdbc:initialize-database>
             <!--mode en mémoire-->
+    <!--
        <jdbc:embedded-database id="dataSource" type="HSQL">
-            <!--&lt;!&ndash;exe a chaque demarrage pas de stockage &ndash;&gt;-->
            <jdbc:script location="classpath:sql/schema.sql"/>
            <jdbc:script location="classpath:sql/data.sql"/>
-       </jdbc:embedded-database>
+       </jdbc:embedded-database>>-->
 </beans>

@@ -44,7 +44,6 @@ public class QuestionController {
     @ResponseBody
     public QuestionsPage create(@RequestBody Question question) {
 
-        logger.info("je suis la dans la question");
         List<Question> questions = questionService.listQuestion(0, 3);
         questionService.addQuestion(question);
 
@@ -58,7 +57,7 @@ public class QuestionController {
        boolean deleteQuestion= questionService.deletQuestion(idQuestion);
     }
 
-    @RequestMapping(value="/udate", method=RequestMethod.POST)
+    @RequestMapping(value="/update", method=RequestMethod.POST)
     @ResponseBody
     public void updateQuesiton(){
 

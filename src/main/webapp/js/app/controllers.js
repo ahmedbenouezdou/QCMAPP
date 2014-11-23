@@ -21,7 +21,7 @@ angular.module('QcmApp').controller('QuestionListController', function ($rootSco
     };
 
     $scope.deleteQuestion=function(idListe,idQuestion){
-        QuestionService.deleteQuestion(idQuestion).success(function(){
+        QuestionService.delete(idQuestion).success(function(){
             console.info(idQuestion);
             $scope.page.page.splice(idListe, 1);
             page(0);
@@ -48,7 +48,7 @@ angular.module('QcmApp').controller('NewQuestionListController', function ($scop
 
     $scope.saveQuestion = function () {
         console.info($scope.question)
-        QuestionService.saveQuestion($scope.question).success(function () {
+        QuestionService.save($scope.question).success(function () {
             $location.path('/question');
         }).error(function() {
             $scope.erreur=true;
